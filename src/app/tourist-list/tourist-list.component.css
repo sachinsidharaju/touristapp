@@ -1,0 +1,15 @@
+#table 
+{
+    text-align: center;
+    color: #fff;
+
+}
+.tbl
+{
+    background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.3)),url(/assets/img/img7.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: cover; 
+    height: 100vh;
+    color: #fff;
+}

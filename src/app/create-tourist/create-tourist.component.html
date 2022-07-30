@@ -1,0 +1,79 @@
+
+    
+
+<div  *ngIf="alert" class="alert alert-success alert-dismissible fade show text-center col-md-6 offset-md-3" role="alert" id="alert">
+    <strong>Success!</strong> Registration Successful.
+    <button (click)="closeAlert()"type="button" class="close position-absolute top-0 end-0" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div  *ngIf="alert1" class="alert alert-danger alert-dismissible fade show text-center col-md-6 offset-md-3" role="alert" id="alert">
+    <strong>Error!</strong> Server Error.          
+    <button (click)="closeAlert1()"type="button" class="close position-absolute top-0 end-0" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="image">
+<div class=" col-md-4 offset-md-4 border border-5 rounded content-form">
+     
+<h3 class="text-center">Register</h3>
+
+
+<form (ngSubmit)="onSubmit(userForm)" #userForm="ngForm" class="content">
+   
+    <div class="form-group">
+        <label>Id</label>
+        <input type="text" class="form-control" id="Id" [(ngModel)]="tourist.id" name="id" required #id="ngModel" pattern="[0-9]*" maxlength="4" [class.is-invalid]="id.invalid && id.touched">
+        <small class="text-danger" [class.d-none]="id.valid || id.untouched">Id must be only digits and required!</small>
+       </div>
+        <div class="form-group">
+        <label>First Name</label>
+        <input type="text" class="form-control" id="First Name" [(ngModel)]="tourist.name" name="First Name" required #firstName="ngModel" maxlength="15" pattern="[a-zA-Z][a-zA-Z]+" [class.is-invalid]="firstName.invalid && firstName.touched" >
+        <small class="text-danger" [class.d-none]="firstName.valid || firstName.untouched">First Name must be only Letters and required!</small>
+        </div>
+    <div class="form-group">
+         <label>Last Name</label>
+        <input type="text" class="form-control" id="Last Name" [(ngModel)]="tourist.lName" name="Last Name" required #lastName="ngModel" maxlength="12" pattern="[a-zA-Z][a-zA-Z]+" [class.is-invalid]="lastName.invalid && lastName.touched">
+        <small class="text-danger" [class.d-none]="lastName.valid || lastName.untouched">Last Name must be only Letters and required!</small>
+    </div>
+    
+    <div class="form-group">
+        <label>Age</label>
+        <input type="text" class="form-control" id="age" [(ngModel)]="tourist.age" name="age" pattern="^([1-9]|[1-8][0-9]|90)$"  required #age="ngModel" maxlength="2" [class.is-invalid]="age.invalid && age.touched">
+        <small class="text-danger" [class.d-none]="age.valid || age.untouched">Age must be only digits within 90 and required!</small>
+    </div>
+    
+    <div>
+        <label style="display: block;">Gender</label>
+        
+    <div class="form-check form-check-inline">
+        <input type="radio" class="form-check-input" id="inline-radio1" [(ngModel)]="tourist.gender"  name="gender" value="Male" required #gender="ngModel"  >
+         <label class="form-check-label" for="inline-radio1">Male</label>
+    </div>
+    <div class="form-check form-check-inline">
+        <input type="radio" class="form-check-input" id="inline-radio2" [(ngModel)]="tourist.gender"  name="gender" value="Female" required #gender="ngModel" >
+        <label class="form-check-label" for="inline-radio2">Female</label>
+    </div>
+    <div class="form-check form-check-inline">
+        <input type="radio" class="form-check-input" id="inline-radio3" [(ngModel)]="tourist.gender"  name="gender" value="Others" required #gender="ngModel" >
+        <label class="form-check-label" for="inline-radio1">Others</label>
+    </div>
+    </div>
+    
+    <div class="form-group">
+         <label>From Place</label>
+        <input type="text" class="form-control" id="First Name" [(ngModel)]="tourist.fromPlace" name="fromPlace" required #fromPlace="ngModel" maxlength="25"  pattern="[a-zA-Z][a-zA-Z]+" [class.is-invalid]="fromPlace.invalid && fromPlace.touched">
+        <small class="text-danger" [class.d-none]="fromPlace.valid || fromPlace.untouched">From Place must be only Letters and required!</small>
+    </div>
+    <div class="form-group">
+    <label>No of days visit</label>
+    <input type="text" class="form-control" id="Id" [(ngModel)]="tourist.numberOfDaysVisits" name="numberOfDaysVisits" required #noOfDaysOfVisit="ngModel" pattern="[0-9]*" maxlength="6" [class.is-invalid]="noOfDaysOfVisit.invalid && noOfDaysOfVisit.touched">
+    <small class="text-danger" [class.d-none]="noOfDaysOfVisit.valid || noOfDaysOfVisit.untouched">No of days of visit must be only digits and required!</small>
+</div>
+<button [disabled]="userForm.form.invalid"class="btn btn-success btn-md " id="button" type="submit">Submit</button>
+
+</form>
+</div>
+
+    
+</div>

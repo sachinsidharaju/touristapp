@@ -1,0 +1,30 @@
+<div class="tbl">
+<div class="container">
+<h1 class="text-center display-5">{{name}}</h1>
+<table class="table  " id="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Gender</th>
+            <th>Age</th>
+            <th>From Place</th>
+            <th>Number of days visit</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let tourist of tourists| paginate: {itemsPerPage:6,currentPage:p};">
+            <td>{{tourist.id}}</td>
+            <td >{{tourist.name}}</td>
+            <td >{{tourist.lName}}</td>
+            <td>{{tourist.gender}}</td>
+            <td>{{tourist.age}}</td>
+            <td>{{tourist.fromPlace}}</td>
+            <td>{{tourist.numberOfDaysVisits}}</td>
+        </tr>
+    </tbody>
+    </table>
+<pagination-controls class="text-center" (pageChange)="p=$event"></pagination-controls>
+</div>
+</div>
